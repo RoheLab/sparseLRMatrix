@@ -1,3 +1,6 @@
+#' @import Matrix
+NULL
+
 #' Sparse plus low rank matrix
 #'
 #' Eventually this class will subclass `Matrix` objects,
@@ -26,19 +29,7 @@ setClass(
   )
 )
 
-#' Title
-#'
-#' @param sparse TODO
-#' @param U TODO
-#' @param V TODO
-#'
-#' @return
 #' @export
-#' @importFrom methods new
-#'
-#' @examples
-#'
-#' # TODO
 sparseLRMatrix <- function(sparse, U, V) {
   methods::new(
     Class = "sparseLRMatrix",
@@ -72,10 +63,6 @@ Atx <- function(x, A) {
   drop(out)
 }
 
-#' @export
-#' @importFrom RSpectra svds
-svds <- RSpectra::svds
-
 #' Truncated singular value decomposition of a matrix
 #'
 #' A thin wrapper around [RSpectra::svds()], please see more detailed
@@ -89,7 +76,9 @@ svds <- RSpectra::svds
 #' @param opts Passed to [RSpectra::svds()].
 #' @param ... Passed to [RSpectra::svds()].
 #'
+#' @importFrom RSpectra svds
 #' @method svds sparseLRMatrix
+#'
 #' @export
 #'
 #' @examples
@@ -110,7 +99,7 @@ svds <- RSpectra::svds
 #' svds(X, 5)
 #'
 svds.sparseLRMatrix <- function(A, k, nu = k, nv = k, opts = list(), ...) {
-  svds(
+  RSpectra::svds(
     Ax,
     k,
     nu = nu,

@@ -16,39 +16,53 @@ knitr::opts_chunk$set(
 # sparseLRMatrix
 
 <!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
-The goal of sparseLRMatrix is to ...
+`sparseLRMatrix` provides a single matrix S4 class called `sparseLRMatrix` which represents matrices that can be expressed as the sum of sparse matrix and a low rank matrix. We also provide an efficient SVD method for these matrices by wrapping the `RSpectra` SVD implementation.
+
+Eventually, we will fully subclass `Matrix::Matrix` objects, but the current implementation is extremely minimal.
 
 ## Installation
 
 You can install the released version of sparseLRMatrix from [CRAN](https://CRAN.R-project.org) with:
 
 ``` r
-install.packages("sparseLRMatrix")
+# install.packages("remotes")
+remotes::install_github("RoheLab/sparseLRMatrix")
 ```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
+## Usage
 
 ```{r example}
 library(sparseLRMatrix)
-## basic example code
+library(RSpectra)
+
+set.seed(528491)
+
+n <- 50
+m <- 40
+k <- 3
+
+A <- rsparsematrix(n, m, 0.1)
+
+U <- Matrix(rnorm(n * k), nrow = n, ncol = k)
+V <- Matrix(rnorm(m * k), nrow = m, ncol = k)
+
+# construct the matrix, which represents A + U %*% t(V)
+X <- sparseLRMatrix(sparse = A, U = U, V = V)
+
+s <- svds(X, 5)  # efficient
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+And a quick sanity check
 
-```{r cars}
-summary(cars)
+```{r}
+Y <- A + tcrossprod(U, V)
+s2 <- svds(Y, 5)  # inefficient, but same calculation
+
+# singular values match up, you can check for yourself
+# that the singular vectors do as well!
+all.equal(s$d, s2$d)
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!

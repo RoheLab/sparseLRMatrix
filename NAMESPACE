@@ -2,7 +2,5 @@
 
 S3method(svds,sparseLRMatrix)
 export(sparseLRMatrix)
-export(svds)
 import(Matrix)
 importFrom(RSpectra,svds)
-importFrom(methods,new)
