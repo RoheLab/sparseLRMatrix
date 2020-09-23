@@ -2,56 +2,40 @@
 % Please edit documentation in R/object.R
 \name{svds.sparseLRMatrix}
 \alias{svds.sparseLRMatrix}
-\title{Find the Largest k Singular Values/Vectors of a Matrix}
+\title{Truncated singular value decomposition of a matrix}
 \usage{
 \method{svds}{sparseLRMatrix}(A, k, nu = k, nv = k, opts = list(), ...)
 }
 \arguments{
-\item{A}{The matrix whose truncated SVD is to be computed.}
+\item{A}{Matrix to decompose.}
 
-\item{k}{Number of singular values requested.}
+\item{k}{Number of singular values to estimate.}
 
-\item{nu}{Number of left singular vectors to be computed. This must
-be between 0 and \code{k}.}
+\item{nu}{Number of left singular vectors to estimate.}
 
-\item{nv}{Number of right singular vectors to be computed. This must
-be between 0 and \code{k}.}
+\item{nv}{Number of right singular vectors to estimate.}
 
-\item{opts}{Control parameters related to the computing
-algorithm. See \strong{Details} below.}
+\item{opts}{Passed to \code{\link[RSpectra:svds]{RSpectra::svds()}}.}
 
-\item{...}{Arguments for specialized S3 function calls, for example
-\code{Atrans}, \code{dim} and \code{args}.}
-}
-\value{
-A list with the following components:
-\item{d}{A vector of the computed singular values.}
-\item{u}{An \code{m} by \code{nu} matrix whose columns contain
-         the left singular vectors. If \code{nu == 0}, \code{NULL}
-         will be returned.}
-\item{v}{An \code{n} by \code{nv} matrix whose columns contain
-         the right singular vectors. If \code{nv == 0}, \code{NULL}
-         will be returned.}
-\item{nconv}{Number of converged singular values.}
-\item{niter}{Number of iterations used.}
-\item{nops}{Number of matrix-vector multiplications used.}
+\item{...}{Passed to \code{\link[RSpectra:svds]{RSpectra::svds()}}.}
 }
 \description{
-Find the Largest k Singular Values/Vectors of a Matrix
+A thin wrapper around \code{\link[RSpectra:svds]{RSpectra::svds()}}, please see more detailed
+documentation there. In particular, this function leverages the
+function interface.
 }
 \examples{
-
-library(RSpectra)
 
 set.seed(528491)
 
 n <- 50
+m <- 40
 k <- 3
 
-A <- rsparsematrix(n, n, 0.1)
+A <- rsparsematrix(n, m, 0.1)
 
 U <- Matrix(rnorm(n * k), nrow = n, ncol = k)
-V <- Matrix(rnorm(n * k), nrow = n, ncol = k)
+V <- Matrix(rnorm(m * k), nrow = m, ncol = k)
 
 X <- sparseLRMatrix(sparse = A, U = U, V = V)
 

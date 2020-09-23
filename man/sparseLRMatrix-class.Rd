@@ -4,9 +4,6 @@
 \name{sparseLRMatrix-class}
 \alias{sparseLRMatrix-class}
 \title{Sparse plus low rank matrix}
-\value{
-
-}
 \description{
 Eventually this class will subclass \code{Matrix} objects,
 but for now this is a basic implementation that essentially
