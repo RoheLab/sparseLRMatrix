@@ -1,6 +1,6 @@
 Package: sparseLRMatrix
 Title: Represent and Use Sparse + Low Rank Matrices
-Version: 0.0.0.9002
+Version: 0.1.0
 Authors@R: 
     person(given = "Alex",
            family = "Hayes",
