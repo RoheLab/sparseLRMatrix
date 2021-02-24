@@ -1,6 +1,6 @@
 Package: sparseLRMatrix
 Title: Represent and Use Sparse + Low Rank Matrices
-Version: 0.0.0.9000
+Version: 0.0.0.9001
 Authors@R: 
     person(given = "Alex",
            family = "Hayes",
@@ -21,5 +21,7 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1.9000
-URL: https://github.com/RoheLab/sparseLRMatrix
+URL: https://rohelab.github.io/sparseLRMatrix, https://github.com/RoheLab/sparseLRMatrix
 BugReports: https://github.com/RoheLab/sparseLRMatrix/issues
+Suggests: 
+    covr

@@ -48,6 +48,10 @@ setValidity("sparseLRMatrix", function(object) {
     return("Number of columns in @sparse must equal number of rows in @V.")
   }
 
+  if (ncol(object@U) != ncol(object@V)) {
+    return("Number of columns in @U and @V must match.")
+  }
+
   TRUE
 })
 
@@ -62,6 +66,9 @@ Atx <- function(x, A) {
   out <- crossprod(A@sparse, x) + A@V %*% Matrix::crossprod(A@U, x)
   drop(out)
 }
+
+#' @export
+RSpectra::svds
 
 #' Truncated singular value decomposition of a matrix
 #'
