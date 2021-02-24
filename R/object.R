@@ -1,4 +1,5 @@
 #' @import Matrix
+#' @import methods
 NULL
 
 #' Sparse plus low rank matrix
@@ -13,6 +14,26 @@ NULL
 #' @slot sparse sparseMatrix.
 #' @slot U Matrix.
 #' @slot V Matrix.
+#'
+#' @examples
+#'
+#' set.seed(528491)
+#'
+#' n <- 50
+#' m <- 40
+#' k <- 3
+#'
+#' A <- rsparsematrix(n, m, 0.1)
+#'
+#' U <- Matrix(rnorm(n * k), nrow = n, ncol = k)
+#' V <- Matrix(rnorm(m * k), nrow = m, ncol = k)
+#'
+#' # construct the matrix, which represents A + U %*% t(V)
+#' X <- sparseLRMatrix(sparse = A, U = U, V = V)
+#'
+#' dim(X)
+#'
+#' s <- svds(X, 5)  # efficient
 #'
 setClass(
   Class = "sparseLRMatrix",
@@ -29,7 +50,17 @@ setClass(
   )
 )
 
+#' Create a sparse plus low rank matrix
+#'
+#' @param sparse sparseMatrix.
+#' @param U Matrix.
+#' @param V Matrix.
+#'
+#' @return A [sparseLRMatrix-class] S4 object.
+#'
+#' @inherit sparseLRMatrix-class examples
 #' @export
+#'
 sparseLRMatrix <- function(sparse, U, V) {
   methods::new(
     Class = "sparseLRMatrix",
@@ -55,6 +86,14 @@ setValidity("sparseLRMatrix", function(object) {
   TRUE
 })
 
+#' Check the dimension of a sparseLRMatrix
+#'
+#' @param x A [sparseLRMatrix-class] object.
+#'
+#' @return Dimension of `x`.
+#' @export
+#' @inherit sparseLRMatrix-class examples
+#'
 setMethod("dim", "sparseLRMatrix", function(x) dim(x@sparse))
 
 Ax <- function(x, A) {

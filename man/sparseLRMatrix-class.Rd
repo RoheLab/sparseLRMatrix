@@ -23,3 +23,24 @@ To learn more about S4 classes, please see
 \item{\code{V}}{Matrix.}
 }}
 
+\examples{
+
+set.seed(528491)
+
+n <- 50
+m <- 40
+k <- 3
+
+A <- rsparsematrix(n, m, 0.1)
+
+U <- Matrix(rnorm(n * k), nrow = n, ncol = k)
+V <- Matrix(rnorm(m * k), nrow = m, ncol = k)
+
+# construct the matrix, which represents A + U \%*\% t(V)
+X <- sparseLRMatrix(sparse = A, U = U, V = V)
+
+dim(X)
+
+s <- svds(X, 5)  # efficient
+
+}
