@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://rohelab.github.io/sparseLRMatrix/index.html</loc>
+  </url>
+  <url>
+    <loc>https://rohelab.github.io/sparseLRMatrix/reference/dim-sparseLRMatrix-method.html</loc>
+  </url>
+  <url>
+    <loc>https://rohelab.github.io/sparseLRMatrix/reference/reexports.html</loc>
+  </url>
+  <url>
+    <loc>https://rohelab.github.io/sparseLRMatrix/reference/sparseLRMatrix-class.html</loc>
+  </url>
+  <url>
+    <loc>https://rohelab.github.io/sparseLRMatrix/reference/sparseLRMatrix.html</loc>
+  </url>
+  <url>
+    <loc>https://rohelab.github.io/sparseLRMatrix/reference/svds.sparseLRMatrix.html</loc>
+  </url>
+</urlset>
