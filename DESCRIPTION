@@ -12,18 +12,19 @@ Description: Provides an S4 class for representing and
     implementation is quite spare, but the plan is eventually subclass
     Matrix objects.
 License: MIT + file LICENSE
+URL: https://rohelab.github.io/sparseLRMatrix/,
+    https://github.com/RoheLab/sparseLRMatrix
+BugReports: https://github.com/RoheLab/sparseLRMatrix/issues
 Depends: 
     Matrix,
     methods
 Imports: 
     RSpectra
-Encoding: UTF-8
-LazyData: true
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.1.9000
-URL: https://rohelab.github.io/sparseLRMatrix, https://github.com/RoheLab/sparseLRMatrix
-BugReports: https://github.com/RoheLab/sparseLRMatrix/issues
 Suggests: 
     covr,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.1.9000
