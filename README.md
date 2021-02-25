@@ -5,8 +5,6 @@
 
 <!-- badges: start -->
 
-[![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![Codecov test
 coverage](https://codecov.io/gh/RoheLab/sparseLRMatrix/branch/master/graph/badge.svg)](https://codecov.io/gh/RoheLab/sparseLRMatrix?branch=master)
 [![R-CMD-check](https://github.com/RoheLab/sparseLRMatrix/workflows/R-CMD-check/badge.svg)](https://github.com/RoheLab/sparseLRMatrix/actions)
