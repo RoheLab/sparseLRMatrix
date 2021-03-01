@@ -153,6 +153,20 @@ function interface.</p>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A list with the following components:</p>
+<dt>d</dt><dd><p>A vector of the computed singular values.</p></dd>
+<dt>u</dt><dd><p>An <code>m</code> by <code>nu</code> matrix whose columns contain
+         the left singular vectors. If <code>nu == 0</code>, <code>NULL</code>
+         will be returned.</p></dd>
+<dt>v</dt><dd><p>An <code>n</code> by <code>nv</code> matrix whose columns contain
+         the right singular vectors. If <code>nv == 0</code>, <code>NULL</code>
+         will be returned.</p></dd>
+<dt>nconv</dt><dd><p>Number of converged singular values.</p></dd>
+<dt>niter</dt><dd><p>Number of iterations used.</p></dd>
+<dt>nops</dt><dd><p>Number of matrix-vector multiplications used.</p></dd>
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
