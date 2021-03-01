@@ -122,6 +122,8 @@ RSpectra::svds
 #' @param opts Passed to [RSpectra::svds()].
 #' @param ... Passed to [RSpectra::svds()].
 #'
+#' @inherit RSpectra::svds return
+#'
 #' @importFrom RSpectra svds
 #' @method svds sparseLRMatrix
 #'

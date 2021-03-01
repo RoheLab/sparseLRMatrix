@@ -19,6 +19,19 @@
 
 \item{...}{Passed to \code{\link[RSpectra:svds]{RSpectra::svds()}}.}
 }
+\value{
+A list with the following components:
+\item{d}{A vector of the computed singular values.}
+\item{u}{An \code{m} by \code{nu} matrix whose columns contain
+         the left singular vectors. If \code{nu == 0}, \code{NULL}
+         will be returned.}
+\item{v}{An \code{n} by \code{nv} matrix whose columns contain
+         the right singular vectors. If \code{nv == 0}, \code{NULL}
+         will be returned.}
+\item{nconv}{Number of converged singular values.}
+\item{niter}{Number of iterations used.}
+\item{nops}{Number of matrix-vector multiplications used.}
+}
 \description{
 A thin wrapper around \code{\link[RSpectra:svds]{RSpectra::svds()}}, please see more detailed
 documentation there. In particular, this function leverages the
