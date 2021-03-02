@@ -8,6 +8,8 @@
 [![Codecov test
 coverage](https://codecov.io/gh/RoheLab/sparseLRMatrix/branch/master/graph/badge.svg)](https://codecov.io/gh/RoheLab/sparseLRMatrix?branch=master)
 [![R-CMD-check](https://github.com/RoheLab/sparseLRMatrix/workflows/R-CMD-check/badge.svg)](https://github.com/RoheLab/sparseLRMatrix/actions)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/sparseLRMatrix)](https://CRAN.R-project.org/package=sparseLRMatrix)
 <!-- badges: end -->
 
 `sparseLRMatrix` provides a single matrix S4 class called
@@ -23,6 +25,12 @@ current implementation is extremely minimal.
 
 You can install the released version of sparseLRMatrix from
 [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("sparseLRMatrix")
+```
+
+You can install the development version with:
 
 ``` r
 # install.packages("remotes")
